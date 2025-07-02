@@ -10,7 +10,7 @@
     <p>
         <?php
         //　ソート関数
-        function sort_2way(bool $order,$array) {
+        function sort_2way($array,bool $order) {
             if($order === true) {
                 echo "昇順にソートします。<br>";
                 sort($array);
@@ -18,17 +18,24 @@
                 echo "降順にソートします。<br>";
                 rsort($array);
             }
-            foreach ($array as $array) {
-            echo $array . '<br>';
-            }
         }
-        
+
         // ソートする配列を宣言
         $nums = [15, 4, 18, 23, 10 ];
 
-        //　ソート
-        sort_2way(true, $nums);
-        sort_2way(false, $nums);
+        // 昇順
+        sort_2way($nums, true);
+        foreach ($nums as $num) {
+            echo $num . '<br>';
+        }
+
+        // 降順
+        sort_2way($nums, false);
+        foreach ($nums as $num) {
+            echo $num . '<br>';
+        }
+
+        
         ?>
     </p>
 </body>
